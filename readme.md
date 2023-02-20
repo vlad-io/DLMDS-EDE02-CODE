@@ -48,13 +48,13 @@ The Docker image details
 
 The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the `docker run` command
 
-The `./injestor` folder that contains:
+The `./injestor` folder contains:
 
 a. Dockerfile with:
 
-    - python base image
+   - python base image
 
-    - installation additional kaggle library that is needed to retrieve the dataset
+   - installation of the additional kaggle library that is needed to retrieve the dataset
 
 b. crontab file 
 
