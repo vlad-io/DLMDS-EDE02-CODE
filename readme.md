@@ -20,8 +20,8 @@ The project folder will have the following structure:
 3. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
 4. Update Kaggle username and key as your environmental variables. For example one can use "dlmds-ede02-code/.env" file:
     ```
-    KAGGLE_NAME=yourkaggleusername
-    KAGGLE_KEY=yourkaggleapikey
+    KAGGLE_NAME=your-kaggle-username
+    KAGGLE_KEY=your-kaggle-api-key
     ```
 5. In terminal, navigate to the project folder: 
         `cd dlmds-ede02-code`
@@ -29,18 +29,25 @@ The project folder will have the following structure:
         `docker-compose build`
 ![docker-compose up expected output](/assets/docker-compose-build.png)
 
-If the KAGGLE environmental variables were not setup correctly the following will show
+If the KAGGLE environmental variables were not setup correctly the following WARNINGS will show
 ![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
 
 7. Run the containers
         `docker-compose up`
 ![docker-compose up expected output](/assets/docker-compose-up.png)
 
-As the docker composer launches the containers and one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` Navigate to that link in the browser. The processed data (the csv files) will be available in the `/data-in` folder
+As the docker composer launches the containers, one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` 
 
 ![jupyter access link example](/assets/jupyter-link.png)
 
-8. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
+8. Navigate to that link in the browser. 
+![jupyter notebook](/assets/jupyter-notebook-1.png)
+
+9. The processed data (the csv files) will be available in the `/data-in` folder.
+
+10. In needed save the workbooks in the `/work` folder.
+
+11. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
 
 # Infrastructure as code
 
