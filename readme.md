@@ -10,27 +10,27 @@ C. ML Frontend: provides a jupyter notebook environment to analyse the data in `
 
 ## Setup:
 
-1. Clone the project with gitclone https://github.com/vlad-io/dlmds-ede02-code
+1. Clone the project with `gitclone https://github.com/vlad-io/DLMDS-EDE02-CODE.git`
 
-The folder structure would follow:
+The project folder will have the following structure:
 
 ![project folder structure](/assets/folder-structure.png)
 
-1. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
-2. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
-3. Update Kaggle username and key as your environmental variables. For example one can use "dlmds-ede02-code/.env" file:
+2. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
+3. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
+4. Update Kaggle username and key as your environmental variables. For example one can use "dlmds-ede02-code/.env" file:
         `KAGGLE_NAME=yourkaggleusername
         KAGGLE_KEY=yourkaggleapikey`
-4. In terminal, navigate to the project folder: 
+5. In terminal, navigate to the project folder: 
         `cd dlmds-ede02-code`
-5. Build the images
+6. Build the images
         `docker-compose build`
 ![docker-compose up expected output](/assets/docker-compose-build.png)
 
 If the KAGGLE environmental variables were not setup correctly the following will show
 ![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
 
-6. Run the containers
+7. Run the containers
         `docker-compose up`
 ![docker-compose up expected output](/assets/docker-compose-up.png)
 
@@ -38,7 +38,7 @@ As the docker composer launches the containers and one of the lines in the termi
 
 ![jupyter access link example](/assets/jupyter-link.png)
 
-7. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
+8. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
 
 # Infrastructure as code
 
