@@ -22,36 +22,36 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
 
 1. Clone the project with `gitclone https://github.com/vlad-io/DLMDS-EDE02-CODE.git`
 
-The command will create the project folder that will have the following structure:
+   The command will create the project folder that will have the following structure:
 
-![project folder structure](/assets/folder-structure.png)
+   ![project folder structure](/assets/folder-structure.png)
 
 2. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
 3. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
 4. Update Kaggle username and key as your environmental variables. For example one can use `dlmds-ede02-code/.env` file to store the credentials without exposing the sensitive information to public through the git repository:
-    ```
-    KAGGLE_NAME=your-kaggle-username
-    KAGGLE_KEY=your-kaggle-api-key
-    ```
+   ```
+   KAGGLE_NAME=your-kaggle-username
+   KAGGLE_KEY=your-kaggle-api-key
+   ```
 5. In terminal, navigate to the project folder: 
-        `cd dlmds-ede02-code`
+   `cd dlmds-ede02-code`
 6. Build the images
-        `docker-compose build`
-![docker-compose up expected output](/assets/docker-compose-build.png)
+   `docker-compose build`
+   ![docker-compose up expected output](/assets/docker-compose-build.png)
 
-If the KAGGLE environmental variables were not setup correctly the following WARNINGS will show
-![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
+   If the KAGGLE environmental variables were not setup correctly the following WARNINGS will show
+   ![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
 
 7. Run the containers
-        `docker-compose up`
-![docker-compose up expected output](/assets/docker-compose-up.png)
+   `docker-compose up`
+   ![docker-compose up expected output](/assets/docker-compose-up.png)
 
-As the docker composer launches the containers, one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` 
+   As the docker composer launches the containers, one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` 
 
-![jupyter access link example](/assets/jupyter-link.png)
+   ![jupyter access link example](/assets/jupyter-link.png)
 
 8. Navigate to that link in the browser. 
-![jupyter notebook](/assets/jupyter-notebook-1.png)
+   ![jupyter notebook](/assets/jupyter-notebook-1.png)
 
 9. The processed data (the csv files) will be available in the `/data-in` folder.
 
