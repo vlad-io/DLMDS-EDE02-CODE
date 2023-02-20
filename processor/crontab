@@ -1,0 +1,2 @@
+@reboot unzip /py_cronjob/data-in/novel-corona-virus-2019-dataset -d /py_cronjob/data-out/ -o
+*/5 * * * * unzip /py_cronjob/data-in/novel-corona-virus-2019-dataset -d /py_cronjob/data-out/ -o

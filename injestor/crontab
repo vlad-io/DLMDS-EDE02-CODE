@@ -1,0 +1,2 @@
+@reboot cd /py_cronjob/data-in && kaggle datasets download -d 'sudalairajkumar/novel-corona-virus-2019-dataset'
+@hourly cd /py_cronjob/data-in && kaggle datasets download -d 'sudalairajkumar/novel-corona-virus-2019-dataset'

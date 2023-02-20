@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+ injestor:
+  build: 'injestor'
+  volumes:
+   - input-data:/py_cronjob/data-in
+  environment:
+   - KAGGLE_USERNAME=${KAGGLE_NAME}
+   - KAGGLE_KEY=${KAGGLE_KEY}
+ processor:
+  build: 'processor'
+  volumes:
+   - input-data:/py_cronjob/data-in
+   - output-data:/py_cronjob/data-out
+ ml_frontend:
+  image: jupyter/pyspark-notebook
+  ports:
+   - 8888:8888
+  volumes:
+   - output-data:/home/jovyan/data-in
+   - workbooks:/home/jovyan/work
+
+volumes:
+ input-data:
+ output-data:
+ workbooks:
