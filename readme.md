@@ -58,13 +58,13 @@ a. Dockerfile with:
 
 b. crontab file 
 
-    - Specifies the schedules and the kaggle download command
+   - Specifies the schedules and the kaggle download command
 
-    - First line (@reboot) specifies that the download should run immediately when the container starts
+   - First line (@reboot) specifies that the download should run immediately when the container starts
 
-    - Second line label specifies the frequency schedule:
+   - Second line label specifies the frequency schedule:
 
-    Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
+   Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
 
         - every minute: */1 * * * *
         - every day: 0 1 * * *
