@@ -1,12 +1,12 @@
 # Purpose
 
-This docker-compose consists of 3 images that follow the steps in the batch processing pipeline
+This docker-compose consists of 3 images that follow the steps in the batch processing pipeline.
 
 ## Pipelines steps:
 
 1. Injestor: download the Kaggle data into `injestor/data-in` folder.
 2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out`.
-3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`.
+3. Machine Learning (ML) frontend: provides a jupyter notebook environment to analyse the data in `processor/data-out`, which is visible as `ml_frontend/data-in`.
 
 ## Dataset
    - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
