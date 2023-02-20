@@ -4,9 +4,9 @@ This docker-compose consists of 3 images that follow the steps in the pipeline
 
 ## Pipelines steps:
 
-1. Injestor: download the Kaggle data into `injestor/data-in` folder
-2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
-3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
+A. Injestor: download the Kaggle data into `injestor/data-in` folder
+B. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
+C. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
 
 ## Setup:
 
@@ -40,9 +40,11 @@ As the docker composer launches the containers and one of the lines in the termi
 
 7. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
 
-# Infrastructure as code: Docker image details
+# Infrastructure as code
 
-1. Injestor
+The Docker image details
+
+A. Injestor
 
 The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the `docker run` command
 
@@ -80,7 +82,7 @@ Downloads hourly (as per "@hourly" label). If a different schedule is needed the
 - The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
 - The Dockerfile contains the Kaggle access usename and key, which are necessary to access the dataset
 
-2. Processor
+B. Processor
 The docker image that unpacking the injested data on schedule.
 - Current schedule is set to every 5 minutes, just in case the user makes a mistake and updates the source data.
 - Currently uses the container's standard command 'unzip' unpack the dataset from /data-in into /data-out.
@@ -100,7 +102,7 @@ b. crontab file
 
 - Second line label specifies the frequency schedule:
 
-3. Machine Learning (ML) frontend
+C. Machine Learning (ML) frontend
 - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
 - Exposes port 8888 to access the notebook 
 - As the docker composer launches the container one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=1f0cf2e65e04afc5bc03f0bc63b9cf87a9a980acfec13c2b. Navigate to that link in the browser. 
