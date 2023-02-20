@@ -102,11 +102,9 @@ python base image. Although a smaller Docker image can be used (without python) 
 
 b. crontab file 
 
-- Specifies the schedules for the kaggle download command
-
-- First line (@reboot) specifies that the download should run immediately when the container starts
-
-- Second line label specifies the frequency schedule:
+> Specifies the schedules for the kaggle download command
+> First line (@reboot) specifies that the download should run immediately when the container starts
+> Second line label specifies the frequency schedule:
 
 C. Machine Learning (ML) frontend
 
