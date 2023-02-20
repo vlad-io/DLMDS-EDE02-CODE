@@ -52,35 +52,36 @@ The `./injestor` folder that contains:
 
 a. Dockerfile with:
 
-- python base image
+    - python base image
 
-- installation additional kaggle library that is needed to retrieve the dataset
+    - installation additional kaggle library that is needed to retrieve the dataset
 
 b. crontab file 
 
-- Specifies the schedules and the kaggle download command
+    - Specifies the schedules and the kaggle download command
 
-- First line (@reboot) specifies that the download should run immediately when the container starts
+    - First line (@reboot) specifies that the download should run immediately when the container starts
 
-- Second line label specifies the frequency schedule:
+    - Second line label specifies the frequency schedule:
 
-Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
+    Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
 
-    -- every minute: */1 * * * *
-    -- every day: 0 1 * * *
-    -- once a month: 0 0 1 * *
-    -- every quarter: 0 0 1 */3 *
+        - every minute: */1 * * * *
+        - every day: 0 1 * * *
+        - once a month: 0 0 1 * *
+        - every quarter: 0 0 1 */3 *
 
-- Second line is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
+    - Second line is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
 
-- If a different dataset is needed the 'sudalairajkumar/novel-corona-virus-2019-dataset' should be changed to the desired label
-- The destination folder is the persistent volume that is accessible from the next stage (the Processor) in pipeline.
+    - The destination folder is the persistent volume that is accessible from the next stage (the Processor) in pipeline.
 
-- Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
-- Currently the dataset has several million records which include geographic and time series data.
-- When container is launched it pulls the dataset, and creates a schedule (crond) that attempts to refresh the data.
-- The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
-- The Dockerfile contains the Kaggle access usename and key, which are necessary to access the dataset
+    - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
+    - Currently the dataset has several million records which include geographic and time series data.
+    - If a different dataset is needed the 'sudalairajkumar/novel-corona-virus-2019-dataset' in the crontab file should be changed to the desired label obtained from kaggle
+
+    - When container is launched it pulls the dataset, and creates a schedule (crond) that attempts to refresh the data.
+    - The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
+    - The Dockerfile contains the Kaggle access usename and key, which are necessary to access the dataset
 
 
 
