@@ -64,10 +64,10 @@ b. crontab file
 
 Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
 
--- every minute: */1 * * * *
--- every day: 0 1 * * *
--- once a month: 0 0 1 * *
--- every quarter: 0 0 1 */3 *
+    -- every minute: */1 * * * *
+    -- every day: 0 1 * * *
+    -- once a month: 0 0 1 * *
+    -- every quarter: 0 0 1 */3 *
 
 - Second line command is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
 
