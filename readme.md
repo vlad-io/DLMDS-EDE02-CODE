@@ -4,9 +4,9 @@ This docker-compose consists of 3 images that follow the steps in the pipeline
 
 ## Pipelines steps:
 
-A. Injestor: download the Kaggle data into `injestor/data-in` folder
-B. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
-C. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
+1. Injestor: download the Kaggle data into `injestor/data-in` folder
+2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
+3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
 
 ## Setup:
 
