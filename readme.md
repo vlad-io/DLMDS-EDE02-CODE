@@ -12,7 +12,8 @@ This docker-compose consists of 3 images that follow the steps in the pipeline
 
 1. Clone the project with gitclone https://github.com/vlad-io/dlmds-ede02-code
 
-The folder structure would follow be:
+The folder structure would follow:
+
 ![project folder structure](/assets/folder-structure.png)
 
 1. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
