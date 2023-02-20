@@ -119,10 +119,4 @@ b. crontab file
 
    - Exposes port 8888 to access the notebook 
 
-   - As the docker composer launches the container one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=1f0cf2e65e04afc5bc03f0bc63b9cf87a9a980acfec13c2b. Navigate to that link in the browser. 
-
-   - The processed data will be available in the '/data-in' folder
-
-   - The notebooks can be saved in the work folder
-
-   - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output (as above)
+   - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output of the `docker-compose up` command (as explained above)
