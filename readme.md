@@ -82,6 +82,8 @@ Downloads hourly (as per "@hourly" label). If a different schedule is needed the
 - The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
 - The Dockerfile contains the Kaggle access usename and key, which are necessary to access the dataset
 
+
+
 B. Processor
 The docker image that unpacking the injested data on schedule.
 - Current schedule is set to every 5 minutes, just in case the user makes a mistake and updates the source data.
