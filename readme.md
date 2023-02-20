@@ -8,11 +8,21 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
 2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out`.
 3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`.
 
-## Setup:
+## Dataset
+   - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
+   - Currently the dataset has several million records which include geographic and time series data.
+   - If a different dataset is needed:
+     - Update the 'sudalairajkumar/novel-corona-virus-2019-dataset' in the `./injestor/crontab' to the desired label obtained from kaggle
+     - (Re)run `docker-compose build`
+     - Run `docker-compose up' to launch the application
+   - When container is launched it makes an initial pull of the dataset, and creates a schedule (crond) that refreshes the data.
+   - The current refresh rate currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
+
+## Setup and deployment:
 
 1. Clone the project with `gitclone https://github.com/vlad-io/DLMDS-EDE02-CODE.git`
 
-The project folder will have the following structure:
+The command will create the project folder that will have the following structure:
 
 ![project folder structure](/assets/folder-structure.png)
 
@@ -83,13 +93,6 @@ b. crontab file
    - Second line is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
 
    - The destination folder is the persistent volume that is accessible from the next stage (the Processor) in pipeline.
-
-   - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
-   - Currently the dataset has several million records which include geographic and time series data.
-   - If a different dataset is needed the 'sudalairajkumar/novel-corona-virus-2019-dataset' in the crontab file should be changed to the desired label obtained from kaggle
-
-   - When container is launched it pulls the dataset, and creates a schedule (crond) that attempts to refresh the data.
-   - The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
 
 ## Processor
 
