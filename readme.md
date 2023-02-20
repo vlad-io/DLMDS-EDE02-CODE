@@ -4,9 +4,9 @@ This docker-compose consists of 3 images that follow the steps in the pipeline
 
 ## Pipelines steps:
 
-1. Injestor: download the Kaggle data into injestor/data-in folder
-2. Processor: unpack the information, from injestor/data-in into processor/data-out 
-3. ML Frontend: provides a jupyter notebook environment to analyse the data in ml_frontend/data-in, which is mapped to the processor/data-out
+1. Injestor: download the Kaggle data into `injestor/data-in` folder
+2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
+3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
 
 ## Setup:
 
@@ -31,45 +31,45 @@ If the KAGGLE environmental variables were not setup correctly the following wil
 ![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
 
 6. Run the containers
-        docker-compose up
+        `docker-compose up`
 ![docker-compose up expected output](/assets/docker-compose-up.png)
 
-As the docker composer launches the containers and one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=.... Navigate to that link in the browser. The processed data (the csv files) will be available in the '/data-in' folder
+As the docker composer launches the containers and one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` Navigate to that link in the browser. The processed data (the csv files) will be available in the `/data-in` folder
 
 ![jupyter access link example](/assets/jupyter-link.png)
 
-7. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the "docker-compose up" command was executed.
+7. To shut down, stop the containers in Docker Desktop (if installed) or Ctrl+C in the terminal where the `docker-compose up` command was executed.
 
 # Infrastructure as code: Docker image details
 
 1. Injestor
 
-The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the docker run command
+The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the `docker run` command
 
-### The image folder is in ./injestor that contains:
+The `./injestor` folder that contains:
 
-- Dockerfile with:
+a. Dockerfile with:
 
-##### python base image
+- python base image
 
-##### installation additional kaggle library that is needed to retrieve the dataset
+- installation additional kaggle library that is needed to retrieve the dataset
 
-- crontab file 
+b. crontab file 
 
-##### Specifies the schedules and the kaggle download command
+- Specifies the schedules and the kaggle download command
 
-##### First line (@reboot) specifies that the download should run immediately when the container starts
+- First line (@reboot) specifies that the download should run immediately when the container starts
 
-##### Second line label specifies the frequency schedule:
+- Second line label specifies the frequency schedule:
 
 Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
 
-- every minute: */1 * * * *
-- every day: 0 1 * * *
-- once a month: 0 0 1 * *
-- every quarter: 0 0 1 */3 *
+-- every minute: */1 * * * *
+-- every day: 0 1 * * *
+-- once a month: 0 0 1 * *
+-- every quarter: 0 0 1 */3 *
 
-##### Second line command is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
+- Second line command is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
 
 - If a different dataset is needed the 'sudalairajkumar/novel-corona-virus-2019-dataset' should be changed to the desired label
 - The destination folder is the persistent volume that is accessible from the next stage (the Processor) in pipeline.
