@@ -60,7 +60,7 @@ As the docker composer launches the containers, one of the lines in the terminal
 11. To shut down
     - Stop the containers in Docker Desktop (if installed) 
     ![Docker desktop](/assets/docker-desktop.png)
-    - or Ctrl+C in the terminal where the `docker-compose up` command was executed.
+    - or `Ctrl+C` in the terminal where the `docker-compose up` command is running.
     ![Ctrl+C in terminal](/assets/stop-ctrl-c.png)
 
 # Infrastructure as code
