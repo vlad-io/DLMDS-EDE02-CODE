@@ -69,7 +69,7 @@ Downloads hourly (as per "@hourly" label). If a different schedule is needed the
     -- once a month: 0 0 1 * *
     -- every quarter: 0 0 1 */3 *
 
-- Second line command is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
+- Second line is the Kaggle download command as explained in https://www.kaggle.com/docs/api#interacting-with-datasets
 
 - If a different dataset is needed the 'sudalairajkumar/novel-corona-virus-2019-dataset' should be changed to the desired label
 - The destination folder is the persistent volume that is accessible from the next stage (the Processor) in pipeline.
@@ -81,10 +81,24 @@ Downloads hourly (as per "@hourly" label). If a different schedule is needed the
 - The Dockerfile contains the Kaggle access usename and key, which are necessary to access the dataset
 
 2. Processor
-The docker image that processes the injested data by unpacking on schedule.
+The docker image that unpacking the injested data on schedule.
 - Current schedule is set to every 5 minutes, just in case the user makes a mistake and updates the source data.
 - Currently uses the container's standard command 'unzip' unpack the dataset from /data-in into /data-out.
 - Uses a python image with the view to expand the processing by using python scripts.
+
+The `./processor` folder that contains:
+
+a. Dockerfile with:
+
+- python base image. Although a smaller Docker image can be used (without python) that has the `unzip` command, for consistency the same image as for the `./injestor` is reused.
+
+b. crontab file 
+
+- Specifies the schedules for the kaggle download command
+
+- First line (@reboot) specifies that the download should run immediately when the container starts
+
+- Second line label specifies the frequency schedule:
 
 3. Machine Learning (ML) frontend
 - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
