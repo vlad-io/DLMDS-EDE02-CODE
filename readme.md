@@ -1,12 +1,12 @@
 # Purpose
 
-This docker-compose consists of 3 images that follow the steps in the pipeline
+This docker-compose consists of 3 images that follow the steps in the batch processing pipeline
 
 ## Pipelines steps:
 
-1. Injestor: download the Kaggle data into `injestor/data-in` folder
-2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out` 
-3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`
+1. Injestor: download the Kaggle data into `injestor/data-in` folder.
+2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out`.
+3. ML Frontend: provides a jupyter notebook environment to analyse the data in `ml_frontend/data-in`, which is mapped to the `processor/data-out`.
 
 ## Setup:
 
@@ -19,8 +19,8 @@ The project folder will have the following structure:
 2. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
 3. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
 4. Update Kaggle username and key as your environmental variables. For example one can use "dlmds-ede02-code/.env" file:
-        `KAGGLE_NAME=yourkaggleusername
-        KAGGLE_KEY=yourkaggleapikey`
+        >KAGGLE_NAME=yourkaggleusername
+        >KAGGLE_KEY=yourkaggleapikey`
 5. In terminal, navigate to the project folder: 
         `cd dlmds-ede02-code`
 6. Build the images
