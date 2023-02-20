@@ -44,7 +44,7 @@ As the docker composer launches the containers and one of the lines in the termi
 
 The Docker image details
 
-A. Injestor
+## Injestor
 
 The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the `docker run` command
 
@@ -82,7 +82,7 @@ b. crontab file
    - When container is launched it pulls the dataset, and creates a schedule (crond) that attempts to refresh the data.
    - The current currently set to hourly, because the dataset is expected to be updated daily, but unknown at which time.
 
-B. Processor
+## Processor
 
 The docker image that unpacking the injested data on schedule.
 
@@ -100,22 +100,20 @@ python base image. Although a smaller Docker image can be used (without python) 
 
 b. crontab file 
 
-> Specifies the schedules for the kaggle download command
+   - Specifies the schedules for the kaggle download command
+   - First line (@reboot) specifies that the download should run immediately when the container starts
+   - Second line label specifies the frequency schedule:
 
-> First line (@reboot) specifies that the download should run immediately when the container starts
+## Machine Learning (ML) frontend
 
-> Second line label specifies the frequency schedule:
+   - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
 
-C. Machine Learning (ML) frontend
+   - Exposes port 8888 to access the notebook 
 
-- Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
+   - As the docker composer launches the container one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=1f0cf2e65e04afc5bc03f0bc63b9cf87a9a980acfec13c2b. Navigate to that link in the browser. 
 
-- Exposes port 8888 to access the notebook 
+   - The processed data will be available in the '/data-in' folder
 
-- As the docker composer launches the container one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=1f0cf2e65e04afc5bc03f0bc63b9cf87a9a980acfec13c2b. Navigate to that link in the browser. 
+   - The notebooks can be saved in the work folder
 
-- The processed data will be available in the '/data-in' folder
-
-- The notebooks can be saved in the work folder
-
-- Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output (as above)
+   - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output (as above)
