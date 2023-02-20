@@ -85,16 +85,20 @@ Downloads hourly (as per "@hourly" label). If a different schedule is needed the
 
 
 B. Processor
+
 The docker image that unpacking the injested data on schedule.
+
 - Current schedule is set to every 5 minutes, just in case the user makes a mistake and updates the source data.
+
 - Currently uses the container's standard command 'unzip' unpack the dataset from /data-in into /data-out.
+
 - Uses a python image with the view to expand the processing by using python scripts.
 
-The `./processor` folder that contains:
+The `./processor` folder contains:
 
-a. Dockerfile with:
+a. Dockerfile:
 
-- python base image. Although a smaller Docker image can be used (without python) that has the `unzip` command, for consistency the same image as for the `./injestor` is reused.
+python base image. Although a smaller Docker image can be used (without python) that has the `unzip` command, for consistency the same image as for the `./injestor` is reused.
 
 b. crontab file 
 
@@ -105,8 +109,15 @@ b. crontab file
 - Second line label specifies the frequency schedule:
 
 C. Machine Learning (ML) frontend
+
 - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
+
 - Exposes port 8888 to access the notebook 
+
 - As the docker composer launches the container one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to http://127.0.0.1:8888/lab?token=1f0cf2e65e04afc5bc03f0bc63b9cf87a9a980acfec13c2b. Navigate to that link in the browser. 
+
 - The processed data will be available in the '/data-in' folder
+
+- The notebooks can be saved in the work folder
+
 - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output (as above)
