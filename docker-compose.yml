@@ -1,27 +1,44 @@
 version: '3.8'
 
 services:
+#has three images, which correspond to the steps in the batch processing
+ #app responsible for injesting data from Kaggle
  injestor:
+  #customised python image, from './injestor' folder
   build: 'injestor'
+  #persistent storage for retrieved files
   volumes:
    - input-data:/py_cronjob/data-in
+  #credential information for Kaggle, retrieved from the host environmental variables
   environment:
    - KAGGLE_USERNAME=${KAGGLE_NAME}
    - KAGGLE_KEY=${KAGGLE_KEY}
+
+ #customised python image, unpacks/refreshes the imported data that is made available to the ML frontend
  processor:
+  #customised pypon image, from './processor' folder
   build: 'processor'
+  #persistent storage for inputs and outputs
   volumes:
    - input-data:/py_cronjob/data-in
    - output-data:/py_cronjob/data-out
+
+ #machine learning frontend, for a data science analysis
  ml_frontend:
+  #docker registry image with jupyter notebook
   image: jupyter/pyspark-notebook
   ports:
    - 8888:8888
+  #persistent volumes for data input, and saved notebooks/analysis.
   volumes:
    - output-data:/home/jovyan/data-in
    - workbooks:/home/jovyan/work
 
+#persistent storage, to retain data between sessions
 volumes:
+ #kaggle orgininal data
  input-data:
+ #processed/clean data for the ML frontend
  output-data:
+ #save notebooks, and analysis reports
  workbooks:

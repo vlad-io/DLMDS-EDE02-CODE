@@ -26,6 +26,8 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
 
    ![project folder structure](/assets/folder-structure.png)
 
+   Create the ".env" file to hold the additional environmental variables, for authentication.
+
 2. Ensure that you have a Kaggle sign-in from https://www.kaggle.com/. The free account is necessary to retrieve the dataset.
 3. Retrieve the API token from https://www.kaggle.com/account. The token file will contain the username and key.
 4. Update Kaggle username and key as your environmental variables. For example one can use `dlmds-ede02-code/.env` file to store the credentials without exposing the sensitive information to public through the git repository:

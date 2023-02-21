@@ -19,7 +19,7 @@ ADD . /py_cronjob
 #run the crontab file
 RUN crontab /etc/cron.d/crontab
 
-# download for the first time
+# Kaggle credentials from environmental variables that could be set in docker-compose
 ARG KAGGLE_USERNAME
 ARG KAGGLE_KEY
 ENV KAGGLE_USERNAME ${KAGGLE_USERNAME}

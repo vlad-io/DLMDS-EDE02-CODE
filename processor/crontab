@@ -1,2 +1,6 @@
+#
+#executed at start of the container, initial unpacking of the data
 @reboot unzip /py_cronjob/data-in/novel-corona-virus-2019-dataset -d /py_cronjob/data-out/ -o
+#
+#executed every 5 minutes, repeated unpacking of the data
 */5 * * * * unzip /py_cronjob/data-in/novel-corona-virus-2019-dataset -d /py_cronjob/data-out/ -o
