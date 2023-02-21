@@ -129,3 +129,29 @@ b. crontab file
    - Exposes port 8888 to access the notebook 
 
    - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output of the `docker-compose up` command (as explained above)
+
+# Principles
+
+## reliability
+
+The code uses prebuilt, tested many times building blocks.
+
+## scalability
+
+The Docker technology that is used to ensures scalability because any additional containers can be launced with ease.
+
+## maintainability
+
+The standard, well known technologies are used, such as, python, crontab, jupyter notebook. This ensures that there is sufficient information and skills available to maintain the system.
+
+## data security
+
+Credentials are stored and retrieved from environmental variables, and are not stored in code (or files)
+
+## governance
+
+Documentation is provided accross all steps of the system, and as a main (this) document, available from one/central source (github)
+
+## protection
+
+The data injested from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so
