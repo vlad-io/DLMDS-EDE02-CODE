@@ -132,26 +132,28 @@ b. crontab file
 
 # Principles
 
-## reliability
+The application follows on the following principles:
 
-The code uses prebuilt, tested many times building blocks.
+## Reliability
 
-## scalability
+The code uses prebuilt, tested many times building blocks, such as Docker images.
+
+## Scalability
 
 The Docker technology that is used to ensures scalability because any additional containers can be launced with ease.
 
-## maintainability
+## Maintainability
 
 The standard, well known technologies are used, such as, python, crontab, jupyter notebook. This ensures that there is sufficient information and skills available to maintain the system.
 
-## data security
+## Data security
 
-Credentials are stored and retrieved from environmental variables, and are not stored in code (or files)
+Credentials are stored and retrieved from environmental variables, and are not stored in code (or files).
 
-## governance
+## Governance
 
-Documentation is provided accross all steps of the system, and as a main (this) document, available from one/central source (github)
+Documentation is provided accross all steps of the system, and in the main (this) document, available from one/central source (github).
 
-## protection
+## Protection
 
 The data injested from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so
