@@ -41,13 +41,16 @@ This is fully functional batch processing application packaged as a docker-compo
    `cd dlmds-ede02-code`
 6. Build the images
    `docker-compose build`
+   
    ![docker-compose up expected output](/assets/docker-compose-build.png)
 
    If the KAGGLE environmental variables were not setup correctly the following WARNINGS will show
+   
    ![docker-compose up expected output](/assets/docker-compose-build-no-env.png)
 
 7. Run the containers
    `docker-compose up`
+   
    ![docker-compose up expected output](/assets/docker-compose-up.png)
 
    As the docker composer launches the containers, one of the lines in the terminal output will print an address to the jupyter notebook. It should be similar to `http://127.0.0.1:8888/lab?token=....` 
@@ -55,6 +58,7 @@ This is fully functional batch processing application packaged as a docker-compo
    ![jupyter access link example](/assets/jupyter-link.png)
 
 8. Navigate to that link in the browser will open a jupyter notebook environment as in the following screenshot 
+9. 
    ![jupyter notebook](/assets/jupyter-notebook-1.png)
 
 9. The processed data (the csv files) will be available in the `/data-in` folder.
