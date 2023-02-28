@@ -73,7 +73,7 @@ This is fully functional batch processing system packaged as a docker-compose mu
 
 # Infrastructure as code
 
-The Docker image details
+The Docker setup details for the 3 images used in the application.
 
 ## Injestor
 
