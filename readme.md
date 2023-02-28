@@ -85,11 +85,11 @@ a. Dockerfile with:
 
    - python base image
 
-   - installation of the additional kaggle library that is needed to retrieve the dataset
+   - installation of the additional Kaggle library that is needed to retrieve the dataset
 
 b. crontab file 
 
-   - Specifies the schedules and the kaggle download command
+   - Specifies the schedules and the Kaggle download command
 
    - First line (@reboot) specifies that the download should run immediately when the container starts
 
@@ -128,13 +128,15 @@ b. crontab file
    - First line (@reboot) specifies that the download should run immediately when the container starts
    - Second line label specifies the frequency schedule:
 
-## Machine Learning (ML) frontend
+## Machine Learning (ML) frontend: jupyter/notebook server
 
    - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. This means that no additional folder or Dockerfile is needed to launch this container.
 
-   - Exposes port 8888 to access the notebook 
+   - Exposes port 8888 to access the notebook from the host.
+   
+   - `data-in` volume that is accessible from this frontend contains the data that has been ingested and processed by the previous 2 containers.
 
-   - Navigating to http://127.0.0.1:8888 will open the correct page, but request the token that is only available from the terminal output of the `docker-compose up` command (as explained above)
+   - Note: navigating to http://127.0.0.1:8888 directly will open the correct page, but request the token that is only available from the terminal output of the `docker-compose up` command (as explained above).
 
 # Principles
 
