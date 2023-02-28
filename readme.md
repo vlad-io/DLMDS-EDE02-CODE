@@ -130,7 +130,7 @@ b. crontab file
 
 ## Machine Learning (ML) frontend: jupyter/notebook server
 
-   - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. This means that no additional folder or Dockerfile is needed to launch this container.
+   - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. This means that no additional folder or Dockerfile is needed to launch this container, which reduces maintenance requirements, and increases standardisation.
 
    - Exposes port 8888 to access the notebook from the host.
    
@@ -160,7 +160,7 @@ Credentials are stored and retrieved from environmental variables, and are not s
 
 ## Governance
 
-Documentation is provided accross all steps of the system, and in the main (this) document, available from one/central source (github), which provides version control.
+Documentation is provided accross all steps of the system, and in the main (this) document, available from one/central source (github), which also provides version control.
 
 ## Protection
 
