@@ -2,13 +2,13 @@ Repository: https://github.com/vlad-io/DLMDS-EDE02-CODE.git
 
 # Purpose
 
-This is fully functional batch processing application packaged as a docker-compose package. The docker-compose consists of 3 images where each follows the steps in the batch processing pipeline, namely:
+This is fully functional batch processing system packaged as a docker-compose multi-container application. The docker-compose consists of 3 images where each follows the steps in the batch processing pipeline, namely:
 
 ## Pipelines steps:
 
-1. Injestor: download the Kaggle data into `injestor/data-in` folder.
-2. Processor: unpack the information, from `injestor/data-in` into `processor/data-out`.
-3. Machine Learning (ML) frontend: provides a jupyter notebook environment to analyse the data in `processor/data-out`, which is visible as `ml_frontend/data-in`.
+1. Injestor: ingests the Kaggle data into `/data-in` folder.
+2. Processor: unpack the information, from `injestor/data-in` into `/data-out`.
+3. Machine Learning (ML) frontend: provides a jupyter notebook environment to analyse the data provided by the Processor step in `processor/data-out`, which is visible as `/data-in`.
 
 ## Dataset
    - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
