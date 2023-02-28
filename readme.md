@@ -2,7 +2,7 @@ Repository: https://github.com/vlad-io/DLMDS-EDE02-CODE.git
 
 # Purpose
 
-This docker-compose consists of 3 images that follow the steps in the batch processing pipeline.
+This is fully functional batch processing application packaged as a docker-compose package. The docker-compose consists of 3 images where each follows the steps in the batch processing pipeline, namely:
 
 ## Pipelines steps:
 
@@ -14,7 +14,7 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
    - Current dataset is "Novel corona virus 2019 dataset", that can be found at https://www.kaggle.com/datasets/sudalairajkumar/novel-corona-virus-2019-dataset
    - Currently the dataset has several million records which include geographic and time series data.
    - If a different dataset is needed:
-     - Update the 'sudalairajkumar/novel-corona-virus-2019-dataset' in the `./injestor/crontab' to the desired label obtained from kaggle
+     - Update the 'sudalairajkumar/novel-corona-virus-2019-dataset' in the `./injestor/crontab' to the desired label obtained from Kaggle
      - (Re)run `docker-compose build`
      - Run `docker-compose up' to launch the application
    - When container is launched it makes an initial pull of the dataset, and creates a schedule (crond) that refreshes the data.
@@ -22,7 +22,7 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
 
 ## Setup and deployment:
 
-1. Clone the project with `gitclone https://github.com/vlad-io/DLMDS-EDE02-CODE.git`
+1. Clone the project with `git clone https://github.com/vlad-io/DLMDS-EDE02-CODE.git`
 
    The command will create the project folder that will have the following structure:
 
@@ -54,7 +54,7 @@ This docker-compose consists of 3 images that follow the steps in the batch proc
 
    ![jupyter access link example](/assets/jupyter-link.png)
 
-8. Navigate to that link in the browser. 
+8. Navigate to that link in the browser will open a jupyter notebook environment as in the following screenshot 
    ![jupyter notebook](/assets/jupyter-notebook-1.png)
 
 9. The processed data (the csv files) will be available in the `/data-in` folder.
@@ -91,7 +91,7 @@ b. crontab file
 
    - Second line label specifies the frequency schedule:
 
-     Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a posible set of schedule one can use the following examples:
+     Downloads hourly (as per "@hourly" label). If a different schedule is needed the "@hourly" label should be updated. For a possible set of schedule one can use the following examples:
 
      - every minute: */1 * * * *
      - every day: 0 1 * * *
@@ -104,7 +104,7 @@ b. crontab file
 
 ## Processor
 
-The docker image that unpacking the injested data on schedule.
+The docker image that unpacks the ingests data on schedule.
 
 - Current schedule is set to every 5 minutes, just in case the user makes a mistake and updates the source data.
 
@@ -120,13 +120,13 @@ python base image. Although a smaller Docker image can be used (without python) 
 
 b. crontab file 
 
-   - Specifies the schedules for the kaggle download command
+   - Specifies the schedules for the Kaggle download command
    - First line (@reboot) specifies that the download should run immediately when the container starts
    - Second line label specifies the frequency schedule:
 
 ## Machine Learning (ML) frontend
 
-   - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. 
+   - Uses the unamended jupyter/pyspark-notebook image from the Docker hub. This means that no additional folder or Dockerfile is needed to launch this container.
 
    - Exposes port 8888 to access the notebook 
 
@@ -142,20 +142,20 @@ The code uses prebuilt, tested many times building blocks, such as Docker images
 
 ## Scalability
 
-The Docker technology that is used to ensures scalability because any additional containers can be launced with ease.
+The Docker technology that is used in the appliation ensures scalability because any additional containers can be launched with ease.
 
 ## Maintainability
 
-The standard, well known technologies are used, such as, python, crontab, jupyter notebook. This ensures that there is sufficient information and skills available to maintain the system.
+The standard, well known technologies are used, such as, python, crontab, jupyter notebook. This ensures that there is sufficient documentation and skills available in public space to maintain the system.
 
 ## Data security
 
-Credentials are stored and retrieved from environmental variables, and are not stored in code (or files).
+Credentials are stored and retrieved from environmental variables, and are not stored in code, or files, and therefore pulled into github public repository.
 
 ## Governance
 
-Documentation is provided accross all steps of the system, and in the main (this) document, available from one/central source (github).
+Documentation is provided accross all steps of the system, and in the main (this) document, available from one/central source (github), which provides version control.
 
 ## Protection
 
-The data injested from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so
+The data injested from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so.
