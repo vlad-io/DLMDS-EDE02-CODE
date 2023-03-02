@@ -2,7 +2,7 @@ Repository: https://github.com/vlad-io/DLMDS-EDE02-CODE.git
 
 # Purpose
 
-This is fully functional batch processing system packaged as a docker-compose multi-container application. The docker-compose consists of 3 images where each follows the steps in the batch processing pipeline, namely:
+This is a fully functional batch processing system packaged as a docker-compose multi-container application. The docker-compose consists of 3 images where each follows the steps in the batch processing pipeline, namely:
 
 ## Pipelines steps:
 
@@ -63,7 +63,7 @@ This is fully functional batch processing system packaged as a docker-compose mu
 
 9. The processed data (the csv files) will be available in the `/data-in` folder.
 
-10. In needed save the workbooks in the `/work` folder.
+10. If needed save the workbooks in the `/work` folder.
 
 11. To shut down
     - Stop the containers in Docker Desktop (if installed) 
