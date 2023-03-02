@@ -6,7 +6,7 @@ This is fully functional batch processing system packaged as a docker-compose mu
 
 ## Pipelines steps:
 
-1. Injestor: ingests the Kaggle data into `/data-in` folder.
+1. Ingestor: ingests the Kaggle data into `/data-in` folder.
 2. Processor: unpack the information, from `injestor/data-in` into `/data-out`.
 3. Machine Learning (ML) frontend: provides a jupyter notebook environment to analyse the data provided by the Processor step in `processor/data-out`, which is visible as `/data-in`.
 
@@ -75,7 +75,7 @@ This is fully functional batch processing system packaged as a docker-compose mu
 
 The Docker setup details for the 3 images used in the application.
 
-## Injestor
+## Ingestor
 
 The docker image that retrieves a dataset from Kaggle. It can be used independently from the docker-compose, if a 'data-in' volume is provided in the `docker run` command
 
@@ -164,4 +164,4 @@ Documentation is provided accross all steps of the system, and in the main (this
 
 ## Protection
 
-The data injested from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so.
+The data imported from Kaggle, is not part of the application, and can only be retrieved by a user that has the correct credentials and rights to do so.
